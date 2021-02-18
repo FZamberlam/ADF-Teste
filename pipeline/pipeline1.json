@@ -145,44 +145,6 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"name": "cotacaoCompra",
-									"type": "Double",
-									"physicalType": "float"
-								},
-								"sink": {
-									"name": "cotacaoCompra",
-									"type": "Double",
-									"physicalType": "Double"
-								}
-							},
-							{
-								"source": {
-									"name": "cotacaoVenda",
-									"type": "Double",
-									"physicalType": "float"
-								},
-								"sink": {
-									"name": "cotacaoVenda",
-									"type": "Double",
-									"physicalType": "Double"
-								}
-							},
-							{
-								"source": {
-									"name": "dataHoraCotacao",
-									"type": "DateTime",
-									"physicalType": "date"
-								},
-								"sink": {
-									"name": "dataHoraCotacao",
-									"type": "DateTime",
-									"physicalType": "DateTime"
-								}
-							}
-						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": false,
