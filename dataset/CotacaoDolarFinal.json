@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "cotacaoDolar.csv",
 				"container": "felipe-zamberlam"
 			},
 			"columnDelimiter": ";",
@@ -18,19 +17,6 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "cotacaoCompra",
-				"type": "String"
-			},
-			{
-				"name": "cotacaoVenda",
-				"type": "String"
-			},
-			{
-				"name": "dataHoraCotacao",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
