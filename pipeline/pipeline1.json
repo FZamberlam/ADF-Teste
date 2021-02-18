@@ -147,7 +147,7 @@
 						"type": "TabularTranslator",
 						"typeConversion": true,
 						"typeConversionSettings": {
-							"allowDataTruncation": false,
+							"allowDataTruncation": true,
 							"treatBooleanAsNumber": false
 						}
 					}
