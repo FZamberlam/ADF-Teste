@@ -13,7 +13,7 @@
 				"fileName": "cotacaoDolar.csv",
 				"container": "felipe-zamberlam"
 			},
-			"columnDelimiter": "",
+			"columnDelimiter": "\t",
 			"escapeChar": "\\",
 			"quoteChar": "\""
 		},
