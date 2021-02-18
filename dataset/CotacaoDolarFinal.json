@@ -20,45 +20,15 @@
 		},
 		"schema": [
 			{
+				"name": "cotacaoCompra",
 				"type": "String"
 			},
 			{
+				"name": "cotacaoVenda",
 				"type": "String"
 			},
 			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
+				"name": "dataHoraCotacao",
 				"type": "String"
 			}
 		]
