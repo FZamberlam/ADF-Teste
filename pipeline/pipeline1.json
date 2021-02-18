@@ -28,7 +28,42 @@
 					"sink": {
 						"type": "AzureSqlSink"
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "cotacaoCompra",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cotacaoCompra",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "cotacaoVenda",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cotacaoVenda",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "dataHoraCotacao",
+									"type": "String"
+								},
+								"sink": {
+									"name": "dataHoraCotacao",
+									"type": "String"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
@@ -110,6 +145,44 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "cotacaoCompra",
+									"type": "Double",
+									"physicalType": "float"
+								},
+								"sink": {
+									"name": "cotacaoCompra",
+									"type": "Double",
+									"physicalType": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "cotacaoVenda",
+									"type": "Double",
+									"physicalType": "float"
+								},
+								"sink": {
+									"name": "cotacaoVenda",
+									"type": "Double",
+									"physicalType": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "dataHoraCotacao",
+									"type": "DateTime",
+									"physicalType": "date"
+								},
+								"sink": {
+									"name": "dataHoraCotacao",
+									"type": "DateTime",
+									"physicalType": "DateTime"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
