@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "APItoStage",
+				"name": "APIToStage",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -39,6 +39,93 @@
 				"outputs": [
 					{
 						"referenceName": "Dolar_Stage",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "SP_ConvertToFinal",
+				"description": "",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "APIToStage",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "00:15:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[SP_ConvertToFinal]"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "FinalToBlobStorage",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "SP_ConvertToFinal",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "00:15:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Dolar_Final",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CotacaoDolarFinal",
 						"type": "DatasetReference"
 					}
 				]

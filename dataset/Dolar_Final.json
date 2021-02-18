@@ -1,0 +1,31 @@
+{
+	"name": "Dolar_Final",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "cotacaoCompra",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "cotacaoVenda",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "dataHoraCotacao",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "dolar_felipe",
+			"table": "dolar_final_felipe"
+		}
+	}
+}
