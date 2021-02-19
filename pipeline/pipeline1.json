@@ -139,16 +139,55 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".txt"
+							"fileExtension": ".csv"
 						}
 					},
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "cotacaoCompra",
+									"type": "Single",
+									"physicalType": "real"
+								},
+								"sink": {
+									"name": "cotacaoCompra",
+									"type": "Single",
+									"physicalType": "Single"
+								}
+							},
+							{
+								"source": {
+									"name": "cotacaoVenda",
+									"type": "Single",
+									"physicalType": "real"
+								},
+								"sink": {
+									"name": "cotacaoVenda",
+									"type": "Single",
+									"physicalType": "Single"
+								}
+							},
+							{
+								"source": {
+									"name": "dataHoraCotacao",
+									"type": "DateTime",
+									"physicalType": "date"
+								},
+								"sink": {
+									"name": "dataHoraCotacao",
+									"type": "DateTime",
+									"physicalType": "DateTime"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
+							"treatBooleanAsNumber": false,
+							"dateTimeFormat": "aaaa-MM-dd"
 						}
 					}
 				},
