@@ -149,25 +149,25 @@
 							{
 								"source": {
 									"name": "cotacaoCompra",
-									"type": "Single",
-									"physicalType": "real"
+									"type": "Double",
+									"physicalType": "float"
 								},
 								"sink": {
 									"name": "cotacaoCompra",
-									"type": "Single",
-									"physicalType": "Single"
+									"type": "Double",
+									"physicalType": "Double"
 								}
 							},
 							{
 								"source": {
 									"name": "cotacaoVenda",
-									"type": "Single",
-									"physicalType": "real"
+									"type": "Double",
+									"physicalType": "float"
 								},
 								"sink": {
 									"name": "cotacaoVenda",
-									"type": "Single",
-									"physicalType": "Single"
+									"type": "Double",
+									"physicalType": "Double"
 								}
 							},
 							{
