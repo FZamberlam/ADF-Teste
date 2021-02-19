@@ -128,6 +128,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT\n\tCAST(cotacaoCompra as DECIMAL(6,4)),\n\tCAST(cotacaoVenda as DECIMAL(6,4)),\n\tdataHoraCotacao\nFROM dolar_felipe.dolar_final_felipe",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
