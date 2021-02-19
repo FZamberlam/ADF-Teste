@@ -12,7 +12,7 @@
 				"type": "AzureBlobStorageLocation",
 				"container": "felipe-zamberlam"
 			},
-			"columnDelimiter": ";",
+			"columnDelimiter": "\t",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
