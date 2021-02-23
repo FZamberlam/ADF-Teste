@@ -1,5 +1,5 @@
 {
-	"name": "Dolar_Stage",
+	"name": "Tabela_Dolar_Stage",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",
