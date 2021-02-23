@@ -1,5 +1,5 @@
 {
-	"name": "CotacaoDolarFinal",
+	"name": "BlobStorage",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "BlobStorageFelipe",
