@@ -1,5 +1,5 @@
 {
-	"name": "CotacaoDolar",
+	"name": "DolarPTAX",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "DolarAPI",
