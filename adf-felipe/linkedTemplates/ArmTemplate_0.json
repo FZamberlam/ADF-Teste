@@ -55,6 +55,7 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"description": "Conexão com API do Banco Central retornando cotação do dólar (compra e venda) entre 01/01/2019 e 31/12/2025",
 				"annotations": [],
 				"type": "HttpServer",
 				"typeProperties": {
@@ -66,33 +67,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/CotacaoDolar')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "DolarAPI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "HttpServerLocation"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/DolarAPI')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CotacaoDolarFinal')]",
+			"name": "[concat(parameters('factoryName'), '/BlobStorage')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -120,7 +95,33 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Dolar_Final')]",
+			"name": "[concat(parameters('factoryName'), '/DolarPTAX')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DolarAPI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/DolarAPI')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Tabela_Dolar_Final')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -156,7 +157,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Dolar_Stage')]",
+			"name": "[concat(parameters('factoryName'), '/Tabela_Dolar_Stage')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -190,7 +191,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"name": "[concat(parameters('factoryName'), '/ADF-Felipe')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -260,14 +261,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "CotacaoDolar",
+								"referenceName": "DolarPTAX",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "Dolar_Stage",
+								"referenceName": "Tabela_Dolar_Stage",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -389,14 +390,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "Dolar_Final",
+								"referenceName": "Tabela_Dolar_Final",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "CotacaoDolarFinal",
+								"referenceName": "BlobStorage",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -407,11 +408,11 @@
 				"lastPublishTime": "2021-02-18T15:21:40Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/CotacaoDolar')]",
-				"[concat(variables('factoryId'), '/datasets/Dolar_Stage')]",
+				"[concat(variables('factoryId'), '/datasets/DolarPTAX')]",
+				"[concat(variables('factoryId'), '/datasets/Tabela_Dolar_Stage')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]",
-				"[concat(variables('factoryId'), '/datasets/Dolar_Final')]",
-				"[concat(variables('factoryId'), '/datasets/CotacaoDolarFinal')]"
+				"[concat(variables('factoryId'), '/datasets/Tabela_Dolar_Final')]",
+				"[concat(variables('factoryId'), '/datasets/BlobStorage')]"
 			]
 		}
 	]
