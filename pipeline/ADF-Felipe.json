@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "ADF-Felipe",
 	"properties": {
 		"activities": [
 			{
@@ -67,13 +67,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "CotacaoDolar",
+						"referenceName": "DolarPTAX",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Dolar_Stage",
+						"referenceName": "Tabela_Dolar_Stage",
 						"type": "DatasetReference"
 					}
 				]
@@ -194,13 +194,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Dolar_Final",
+						"referenceName": "Tabela_Dolar_Final",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "CotacaoDolarFinal",
+						"referenceName": "BlobStorage",
 						"type": "DatasetReference"
 					}
 				]
