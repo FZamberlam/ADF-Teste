@@ -1,5 +1,5 @@
 {
-	"name": "Dolar_Final",
+	"name": "Tabela_Dolar_Final",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",
